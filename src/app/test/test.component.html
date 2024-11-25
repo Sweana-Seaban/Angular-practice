@@ -1,0 +1,9 @@
+<p>
+  Created first component with input {{ value }} with title
+  {{ title | titlecase }}
+</p>
+<button (click)="setTextChange()">Send data to parent</button>
+<br /><br />
+<button (click)="updateCount(-1)">Decrement</button>
+<span>{{ count }}</span>
+<button (click)="updateCount(+1)">Increment</button>
