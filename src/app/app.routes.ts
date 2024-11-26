@@ -20,7 +20,7 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./admin/admin.module').then((module) => module.AdminModule),
   },
-  { path: '404', redirectTo: '404' },
+  { path: 'page-not-found', component: PageNotFoundComponent },
   // wildcard route
   { path: '**', component: PageNotFoundComponent },
 ];
