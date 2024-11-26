@@ -11,14 +11,12 @@ export const AuthGuard: CanActivateFn = (
   state: RouterStateSnapshot
 ) => {
   const router = inject(Router);
-  const loggedIn = true;
+  const loggedIn = false;
   if (loggedIn) {
-    console.log(state);
-
     next.component;
     return true;
   } else {
-    // router.navigate(['page-not-found']);
+    router.navigate(['page-not-found']);
     return false;
   }
 };
