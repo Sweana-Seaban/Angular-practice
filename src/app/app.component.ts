@@ -8,9 +8,10 @@ import {
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { TestComponent } from './test/test.component';
 import { CommonModule, NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
-import { FormsModule, NgModel } from '@angular/forms';
+import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 import { HomeModule } from './home/home.module';
 import { AdminModule } from './admin/admin.module';
+import { NameEditorComponent } from './name-editor/name-editor.component';
 
 @Component({
   selector: 'app-root',
@@ -29,6 +30,7 @@ import { AdminModule } from './admin/admin.module';
     RouterLinkActive,
     HomeModule,
     AdminModule,
+    NameEditorComponent,
   ],
   template: '',
   templateUrl: './app.component.html',

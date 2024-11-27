@@ -11,9 +11,8 @@ export const AuthGuard: CanActivateFn = (
   state: RouterStateSnapshot
 ) => {
   const router = inject(Router);
-  const loggedIn = false;
+  const loggedIn = true;
   if (loggedIn) {
-    next.component;
     return true;
   } else {
     router.navigate(['page-not-found']);
