@@ -11,4 +11,8 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 export class NameEditorComponent {
   name = new FormControl('');
   age = new FormControl('');
+
+  updateName() {
+    this.name.setValue('Ammu');
+  }
 }

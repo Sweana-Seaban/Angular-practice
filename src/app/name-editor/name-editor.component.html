@@ -2,5 +2,8 @@
 <label for="name">Name: </label>
 <input id="name" type="text" [formControl]="name" />
 <br /><br />
+<p>Value of name: {{ name.value }}</p>
 <label for="age">Age: </label>
 <input type="number" id="age" [formControl]="age" />
+<p>Value of age: {{ age.value }}</p>
+<button type="button" (click)="updateName()">Update Name</button>
