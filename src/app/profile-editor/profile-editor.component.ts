@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-profile-editor',
@@ -10,7 +15,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class ProfileEditorComponent {
   profileForm = new FormGroup({
-    firstName: new FormControl(''),
+    firstName: new FormControl('', Validators.required),
     lastName: new FormControl(''),
   });
 
