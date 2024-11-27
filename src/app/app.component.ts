@@ -12,6 +12,7 @@ import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 import { HomeModule } from './home/home.module';
 import { AdminModule } from './admin/admin.module';
 import { NameEditorComponent } from './name-editor/name-editor.component';
+import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
 
 @Component({
   selector: 'app-root',
@@ -31,6 +32,7 @@ import { NameEditorComponent } from './name-editor/name-editor.component';
     HomeModule,
     AdminModule,
     NameEditorComponent,
+    ProfileEditorComponent,
   ],
   template: '',
   templateUrl: './app.component.html',

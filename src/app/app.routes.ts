@@ -6,7 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth.guard';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/', pathMatch: 'full' },
+  // { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'first-component', component: FirstComponent },
   { path: 'second-component', component: SecondComponent },
   // { path: 'home-component', component: HomeComponent },
