@@ -4,6 +4,15 @@
   <input id="first-name" type="text" formControlName="firstName" />
   <label for="last-name">Last Name: </label>
   <input id="last-name" type="text" formControlName="lastName" />
+  <br /><br />
+  <div formArrayName="skills">
+    <input
+      type="text"
+      placeholder="Add skill..."
+      *ngFor="let skill of skills.controls; let i = index"
+      [formControlName]="i"
+    />
+  </div>
   <p>Form Status: {{ profileForm.status }}</p>
   <button type="submit">Submit</button>
 </form>
