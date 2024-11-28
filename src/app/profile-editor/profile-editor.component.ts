@@ -5,6 +5,8 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
+  FormsModule,
+  NgForm,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
@@ -12,7 +14,7 @@ import {
 @Component({
   selector: 'app-profile-editor',
   standalone: true,
-  imports: [ReactiveFormsModule, NgFor],
+  imports: [ReactiveFormsModule, NgFor, FormsModule],
   templateUrl: './profile-editor.component.html',
   styleUrl: './profile-editor.component.css',
 })
@@ -34,5 +36,24 @@ export class ProfileEditorComponent {
 
   get skills(): FormArray {
     return this.profileForm.get('skills') as FormArray;
+  }
+
+  user1 = new User('TOM', 'CRUISE', 'tom@gmail.com');
+
+  submitted = false;
+  onFormSubmit(form: NgForm) {
+    console.log('Form Submitted ', form.value);
+  }
+}
+
+class User {
+  firstName: string;
+  lastName: string;
+  email: string;
+
+  constructor(firstname: string, lastname: string, email: string) {
+    this.firstName = firstname;
+    this.lastName = lastname;
+    this.email = email;
   }
 }
