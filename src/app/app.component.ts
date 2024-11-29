@@ -143,7 +143,7 @@ export class AppComponent implements OnInit {
   //delete method
   private deleteObject(id: number) {
     this.http
-      .put(`https://api.restful-api.dev/objects/${id}`, {
+      .delete(`https://api.restful-api.dev/objects/${id}`, {
         headers: { 'my-header': 'my custom header for delete' },
       })
       .subscribe((response) => console.log('response from delete', response));
