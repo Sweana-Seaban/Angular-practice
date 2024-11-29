@@ -1,5 +1,6 @@
 import {
   Component,
+  inject,
   Input,
   OnChanges,
   OnInit,
@@ -13,6 +14,7 @@ import { HomeModule } from './home/home.module';
 import { AdminModule } from './admin/admin.module';
 import { NameEditorComponent } from './name-editor/name-editor.component';
 import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -39,6 +41,8 @@ import { ProfileEditorComponent } from './profile-editor/profile-editor.componen
   styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
+  http: HttpClient = inject(HttpClient);
+
   styles = {
     color: 'purple',
     fontStyle: 'italic',
@@ -60,6 +64,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     console.log(`ngOnInit initializing with name: ${this.name}`);
+    this.getAllObjects();
   }
   // changeName() {
   //   this.name = 'Sweaba';
@@ -71,5 +76,11 @@ export class AppComponent implements OnInit {
 
   alert(input: string) {
     console.log('Name is: ', input);
+  }
+
+  private getAllObjects() {
+    this.http
+      .get('https://api.restful-api.dev/objects')
+      .subscribe((response) => console.log(response));
   }
 }
