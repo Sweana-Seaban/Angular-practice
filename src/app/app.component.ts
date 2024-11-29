@@ -14,7 +14,7 @@ import { HomeModule } from './home/home.module';
 import { AdminModule } from './admin/admin.module';
 import { NameEditorComponent } from './name-editor/name-editor.component';
 import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -66,6 +66,7 @@ export class AppComponent implements OnInit {
     console.log(`ngOnInit initializing with name: ${this.name}`);
     this.getAllObjects();
     this.createObject();
+    this.getObjectById();
   }
   // changeName() {
   //   this.name = 'Sweaba';
@@ -79,11 +80,13 @@ export class AppComponent implements OnInit {
     console.log('Name is: ', input);
   }
 
-  //get method
+  //get method - without parameters
   private getAllObjects() {
     this.http
       .get('https://api.restful-api.dev/objects')
-      .subscribe((response) => console.log(response));
+      .subscribe((response) =>
+        console.log('response from get without parameters', response)
+      );
   }
 
   //post method
@@ -102,6 +105,16 @@ export class AppComponent implements OnInit {
         },
         { headers: { 'my-header': 'my custom header' } }
       )
-      .subscribe((response) => console.log(response));
+      .subscribe((response) => console.log('response from post', response));
+  }
+
+  //get method - with parameters(query string)
+  private getObjectById() {
+    const params = new HttpParams().set('id', 7);
+    this.http
+      .get('https://api.restful-api.dev/objects', { params })
+      .subscribe((response) =>
+        console.log('response from get with parameters', response)
+      );
   }
 }
