@@ -67,6 +67,7 @@ export class AppComponent implements OnInit {
     this.getAllObjects();
     this.createObject();
     this.getObjectById();
+    this.updateObject(7);
   }
   // changeName() {
   //   this.name = 'Sweaba';
@@ -116,5 +117,25 @@ export class AppComponent implements OnInit {
       .subscribe((response) =>
         console.log('response from get with parameters', response)
       );
+  }
+
+  //put method
+  private updateObject(id: number) {
+    this.http
+      .put(
+        `https://api.restful-api.dev/objects/${id}`,
+        {
+          name: 'Apple MacBook Pro 16',
+          data: {
+            year: 2019,
+            price: 2049.99,
+            'CPU model': 'Intel Core i9',
+            'Hard disk size': '1 TB',
+            color: 'silver',
+          },
+        },
+        { headers: { 'my-header': 'my custom header for update' } }
+      )
+      .subscribe((response) => console.log('response from put', response));
   }
 }
