@@ -68,6 +68,7 @@ export class AppComponent implements OnInit {
     this.createObject();
     this.getObjectById();
     this.updateObject(7);
+    this.deleteObject(6);
   }
   // changeName() {
   //   this.name = 'Sweaba';
@@ -137,5 +138,14 @@ export class AppComponent implements OnInit {
         { headers: { 'my-header': 'my custom header for update' } }
       )
       .subscribe((response) => console.log('response from put', response));
+  }
+
+  //delete method
+  private deleteObject(id: number) {
+    this.http
+      .put(`https://api.restful-api.dev/objects/${id}`, {
+        headers: { 'my-header': 'my custom header for delete' },
+      })
+      .subscribe((response) => console.log('response from delete', response));
   }
 }
