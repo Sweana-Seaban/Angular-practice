@@ -65,6 +65,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     console.log(`ngOnInit initializing with name: ${this.name}`);
     this.getAllObjects();
+    this.createObject();
   }
   // changeName() {
   //   this.name = 'Sweaba';
@@ -78,9 +79,29 @@ export class AppComponent implements OnInit {
     console.log('Name is: ', input);
   }
 
+  //get method
   private getAllObjects() {
     this.http
       .get('https://api.restful-api.dev/objects')
+      .subscribe((response) => console.log(response));
+  }
+
+  //post method
+  private createObject() {
+    this.http
+      .post(
+        'https://api.restful-api.dev/objects',
+        {
+          name: 'Apple MacBook Pro 16',
+          data: {
+            year: 2019,
+            price: 1849.99,
+            'CPU model': 'Intel Core i9',
+            'Hard disk size': '1 TB',
+          },
+        },
+        { headers: { 'my-header': 'my custom header' } }
+      )
       .subscribe((response) => console.log(response));
   }
 }
